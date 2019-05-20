@@ -27,10 +27,25 @@ factor = 0.01
 
 for i in range(365):
     if (i %7 in [6, 0]):
-        print("before%f" %base)
+        #print("before%f" %base)
         base = base * (1 - factor)
-        print("after%f" %base)
+        #print("after%f" %base)
     else:
         base = base * (1 + factor)
 
 print(base)
+
+#Q4
+def dayUp(df):
+    dayUp = 1
+    for i in range(365):
+        if i %7 in [6, 0]:
+            dayUp = dayUp * (1- 0.01)
+        else:
+            dayUp = dayUp * (1 + df)
+    return dayUp
+
+df = 0.01
+while dayUp(df) < 37.78:
+    df += 0.001
+print('df: {:.3f}'.format(df))
